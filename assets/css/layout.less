@@ -1,0 +1,1489 @@
+@color: #2c5432; // 主色调
+// -webkit-overflow-scrolling: touch;
+
+.border-rds(@radius) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  -ms-border-radius: @radius;
+  -o-border-radius: @radius;
+  border-radius: @radius;
+}
+
+.bs_bb() {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.bs_cb() {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -ms-box-sizing: content-box;
+  -o-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+.text_one() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text_hide(@pre: 2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: @pre;
+}
+
+.box-shadow(@pre) {
+  -webkit-box-shadow: @pre;
+  -moz-box-shadow: @pre;
+  -ms-box-shadow: @pre;
+  -o-box-shadow: @pre;
+  box-shadow: @pre;
+}
+
+.scale(@pre) {
+  -webkit-transform: scale(@pre);
+  -moz-transform: scale(@pre);
+  -ms-transform: scale(@pre);
+  -o-transform: scale(@pre);
+  transform: scale(@pre);
+}
+
+.scaleY(@pre) {
+  -webkit-transform: scaleY(@pre);
+  -moz-transform: scaleY(@pre);
+  -ms-transform: scaleY(@pre);
+  -o-transform: scaleY(@pre);
+  transform: scaleY(@pre);
+}
+
+.scaleX(@pre) {
+  -webkit-transform: scaleX(@pre);
+  -moz-transform: scaleX(@pre);
+  -ms-transform: scaleX(@pre);
+  -o-transform: scaleX(@pre);
+  transform: scaleX(@pre);
+}
+
+.rotate(@pre) {
+  -webkit-transform: rotate(@pre);
+  -moz-transform: rotate(@pre);
+  -ms-transform: rotate(@pre);
+  -o-transform: rotate(@pre);
+  transform: rotate(@pre);
+}
+
+.translateY(@pre) {
+  -webkit-transform: translateY(@pre);
+  -moz-transform: translateY(@pre);
+  -ms-transform: translateY(@pre);
+  -o-transform: translateY(@pre);
+  transform: translateY(@pre);
+}
+
+.translateX(@pre) {
+  -webkit-transform: translateX(@pre);
+  -moz-transform: translateX(@pre);
+  -ms-transform: translateX(@pre);
+  -o-transform: translateX(@pre);
+  transform: translateX(@pre);
+}
+
+.translate(@preX, @preY) {
+  -webkit-transform: translate(@preX, @preY);
+  -moz-transform: translate(@preX, @preY);
+  -ms-transform: translate(@preX, @preY);
+  -o-transform: translate(@preX, @preY);
+  transform: translate(@preX, @preY);
+}
+
+.animation(@preX) {
+  -webkit-animation: @preX;
+  -moz-animation: @preX;
+  -ms-animation: @preX;
+  -o-animation: @preX;
+  animation: @preX;
+}
+
+.transform-o(@pre) {
+  -webkit-transform-origin: @pre;
+  -moz-transform-origin: @pre;
+  -ms-transform-origin: @pre;
+  -o-transform-origin: @pre;
+  transform-origin: @pre;
+}
+
+.transition(@pre) {
+  -webkit-transition: @pre;
+  -moz-transition: @pre;
+  -ms-transition: @pre;
+  -o-transition: @pre;
+  transition: @pre;
+}
+
+.wcalc(@width) {
+  width: -webkit-calc(@width);
+  width: -moz-calc(@width);
+  width: -ms-calc(@width);
+  width: -o-calc(@width);
+  width: calc(@width);
+}
+
+.hcalc(@height) {
+  height: -webkit-calc(@height);
+  height: -moz-calc(@height);
+  height: -ms-calc(@height);
+  height: -o-calc(@height);
+  height: calc(@height);
+}
+
+body,
+p,
+ul,
+ol,
+li,
+form,
+th,
+td,
+select,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+textarea,
+title,
+dl,
+dt,
+dd,
+div,
+section {
+  margin: 0;
+  padding: 0;
+  .bs_bb();
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+li,
+dt,
+dd {
+  list-style: none;
+}
+
+body {
+  font-size: 1.2rem;
+  color: #555;
+  font-family: Microsoft YaHei, arial, tahoma, '\5fae\8f6f\96c5\9ed1', 'Hiragino Sans GB', sans-serif !important;
+  max-width: 750px;
+  margin: 0 auto;
+  -webkit-tap-highlight-color: transparent;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1.2rem;
+}
+
+a {
+  text-decoration: none;
+  color: #555;
+}
+
+img {
+  border: none;
+  font-size: 0;
+  vertical-align: middle;
+}
+
+button {
+  outline: none;
+}
+
+input,
+textarea {
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #bbb;
+  .border-rds(0);
+  .bs_bb();
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: 0;
+  font-size: 1.2rem;
+  color: #555;
+  font-family: Microsoft YaHei, arial, tahoma, '\5fae\8f6f\96c5\9ed1', 'Hiragino Sans GB', sans-serif !important;
+}
+
+input.on {
+  border-color: #ff6400;
+}
+
+textarea {
+  resize: none;
+  overflow: auto;
+}
+
+input[type='radio'],
+input[type='checkbox'] {
+  box-shadow: none;
+  border: none;
+}
+
+select {
+  width: 100%;
+  line-height: 1.8;
+  border: 1px solid #bbb;
+  .bs_bb();
+  outline: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-size: 1.2rem;
+  color: #555;
+  font-family: 'PingFang SC', Microsoft YaHei, arial, tahoma, '\5fae\8f6f\96c5\9ed1', 'Hiragino Sans GB', sans-serif !important;
+}
+
+input:disabled {
+  opacity: 1 !important;
+  -webkit-opacity: 1 !important;
+  -webkit-text-fill-color: #333;
+}
+
+/*****************************
+辅助类样式
+*****************************/
+.clearfix:after {
+  content: '';
+  clear: both;
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 94%;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.text-r {
+  text-align: right !important;
+}
+
+.text-l {
+  text-align: left !important;
+}
+
+.text-c {
+  text-align: center !important;
+}
+
+.text-j {
+  text-align: justify !important;
+}
+
+.bg-b {
+  background-color: #333333 !important;
+  width: 100%;
+}
+
+.bg-w {
+  background-color: white !important;
+  width: 100%;
+}
+
+.bg-o {
+  background-color: #ff5529 !important;
+  width: 100%;
+}
+
+.bg-g {
+  background-color: #f8f8f8 !important;
+  width: 100%;
+}
+
+.hide {
+  display: none;
+}
+
+/* 通用flex */
+.flex {
+  display: -webkit-flex;
+  display: flex;
+}
+
+/* 宽度随屏幕改变变化 */
+.flex-1 {
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+/* 垂直水平居中 */
+.flex-center {
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  -webkit-justify-content: center;
+  -webkit-flex-direction: column;
+  -webkit-align-items: center;
+}
+
+.flex-start {
+  align-items: flex-start;
+  -webkit-align-items: flex-start;
+}
+
+/* 水平居中 */
+.flex-align-center {
+  justify-content: center;
+  -webkit-justify-content: center;
+}
+
+/* 垂直居中 */
+.flex-ver {
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.flex-end {
+  -webkit-align-items: flex-end;
+  align-items: flex-end;
+}
+
+/* flex 换行 */
+.flex-wrap {
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+/* flex 容器（设置为flex）内子元素向两边顶齐平分 */
+.flex-jcsb {
+  justify-content: space-between;
+}
+
+/* 容器（设置为flex）内子元素靠最后对齐（水平时比较像右浮动） */
+.flex-jcfe {
+  justify-content: flex-end;
+}
+
+/* 容器（设置为flex）内子元素靠最前对齐（水平时比较像左浮动） */
+.flex-jcfs {
+  justify-content: flex-start;
+}
+
+/* 容器（设置为flex）内子元素等高 */
+.flex-ais {
+  align-items: stretch;
+}
+
+/* 容器（设置为flex）内子元素置底 */
+.flex-aife {
+  align-items: flex-end;
+}
+
+/* flex 纵向 */
+.flex-col {
+  -webkit-flex-flow: column;
+  flex-flow: column;
+}
+
+.flex-row {
+  -webkit-flex-flow: row;
+  flex-flow: row;
+}
+
+.flex-sb {
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.flex-sa {
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+}
+
+.w-half {
+  width: 50% !important;
+}
+
+.w-max {
+  width: 100% !important;
+}
+
+.edit_textBox {
+  word-break: break-all;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #000;
+
+  * {
+    font-size: inherit;
+    max-width: 100% !important;
+  }
+
+  td,
+  th {
+    border: 1px solid #000;
+  }
+
+  a {
+    color: #7030a0;
+    text-decoration: underline;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 2;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 18.72px;
+  }
+
+  h4 {
+    font-size: 16px;
+  }
+
+  h5 {
+    font-size: 13.28px;
+  }
+
+  h6 {
+    font-size: 12px;
+  }
+
+  img {
+    display: inline-block;
+    height: auto;
+    vertical-align: top;
+    width: auto;
+  }
+}
+
+/*****************************
+分页器样式
+*****************************/
+
+/*****************************
+公用header
+*****************************/
+.v-header {
+}
+
+/*****************************
+公用footer
+*****************************/
+.v-footer {
+}
+
+/*****************************
+页面样式
+*****************************/
+html,
+body,
+#__nuxt,
+#__layout,
+#__layout > div {
+  height: 100%;
+}
+/*****************************
+首页
+*****************************/
+.index-page {
+  height: 100%;
+  padding-top: 4.3rem;
+  .index-main,
+  .index-banner,
+  .swiper-item-inner {
+    height: 100%;
+  }
+  .swiper-item-inner {
+    background: top center/cover no-repeat;
+  }
+  .swiper-pagination-bullets {
+    bottom: 6.3rem;
+  }
+  .swiper-pagination-bullet {
+    margin: 0 0.75rem !important;
+    opacity: 1;
+    width: 1.6rem;
+    height: 1.6rem;
+    background-color: transparent;
+    background-image: url(../images/wap/index/square2.png);
+    -webkit-background-size: 100%;
+    background-size: 100%;
+    &.swiper-pagination-bullet-active {
+      width: 2.7rem;
+      height: 2.7rem;
+      background-image: url(../images/wap/index/square1.png);
+    }
+  }
+}
+
+/*****************************
+页面公用banner
+*****************************/
+.common-banner {
+  height: 11rem;
+  background: center center/cover no-repeat;
+  position: relative;
+  .banner-title-box {
+    position: absolute;
+    left: 1.4rem;
+    bottom: 1.5rem;
+    line-height: 1;
+    .tit-cn {
+      font-size: 1.6rem;
+      font-family: PingFang SC;
+      font-weight: bold;
+      color: rgba(255, 255, 255, 1);
+      padding-bottom: 0.8rem;
+      position: relative;
+      &::after {
+        content: '';
+        display: block;
+        width: 2.3rem;
+        height: 1px;
+        background-color: #fff;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+      }
+    }
+    .tit-en {
+      padding-top: 0.8rem;
+      font-size: 1rem;
+      font-family: PingFang SC;
+      font-weight: bold;
+      color: rgba(255, 255, 255, 1);
+    }
+  }
+}
+.common-tit {
+  line-height: 1;
+  font-size: 1.8rem;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: @color;
+  padding: 4.3rem 0 1.5rem;
+}
+.common-txt {
+  font-size: 1.2rem;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: rgba(102, 102, 102, 1);
+  line-height: 3.3rem;
+}
+.common-view-more {
+  .line {
+    margin: 0 auto;
+    width: 2px;
+    height: 50px;
+    background: rgba(210, 210, 210, 1);
+    margin-bottom: 22px;
+  }
+  .txt {
+    text-align: center;
+    font-size: 14px;
+    font-family: PingFang SC;
+    color: rgba(153, 153, 153, 1);
+  }
+}
+
+/*****************************
+品牌故事
+*****************************/
+.story-page {
+  padding: 4.3rem 0 0;
+  .main-banner {
+    background-image: url(../images/wap/contact/aboutus.jpg);
+  }
+  .page-wrapper {
+  }
+  .v-footer {
+    background: url(../images/culture/BG2.jpg) center/cover repeat-y;
+  }
+  .inner-top {
+    padding: 0 2.7rem;
+  }
+  .show-list {
+    padding: 4rem 0;
+    .show-item {
+      margin-bottom: 3.3rem;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      .img-box {
+        text-align: right;
+        position: relative;
+      }
+      .img {
+        width: 75.3%;
+      }
+      .tag {
+        height: 6.7rem;
+        position: absolute;
+        left: 0;
+        bottom: -1.6rem;
+      }
+      .item-desc {
+        padding: 1.6rem 0 1rem;
+        padding-left: 24.7%;
+        text-align: left;
+        font-size: 1.2rem;
+        font-family: PingFang SC;
+        color: rgba(153, 153, 153, 1);
+        line-height: 2rem;
+        position: relative;
+        &::after {
+          content: '';
+          display: block;
+          width: 12rem;
+          height: 1px;
+          position: absolute;
+          left: 24.7%;
+          bottom: 0;
+          background: rgba(224, 225, 222, 1);
+        }
+      }
+    }
+  }
+  .inner-bottom {
+  }
+  .intro-box {
+    padding: 0 2.7rem;
+    height: 8.5rem;
+    background: url(../images/culture/BG1.jpg) top center/cover no-repeat;
+  }
+  .intro-box2 {
+    padding: 0 2.7rem;
+    background: url(../images/culture/BG2.jpg) center/cover repeat-y;
+
+    .intro-list {
+    }
+    .intro-item {
+      &:first-child {
+        border-top: 0;
+      }
+      border-top: 1px solid rgba(191, 191, 191, 1);
+    }
+    .item-tit {
+      text-align: center;
+      padding: 3.3rem 0 2.5rem;
+      font-size: 1.8rem;
+      font-family: PingFang SC;
+      font-weight: 400;
+      color: @color;
+    }
+    .item-img {
+      width: 100%;
+    }
+    .item-txt-box {
+      padding: 2.2rem 0 2.7rem;
+    }
+    .item-txt {
+      font-size: 1.2rem;
+      font-family: PingFang SC;
+      color: rgba(153, 153, 153, 1);
+      line-height: 2.4rem;
+      margin-bottom: 3.3rem;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+/*****************************
+品牌故事
+*****************************/
+.story-page {
+  padding: 4.3rem 0 0;
+  .main-banner {
+    background-image: url(../images/wap/contact/aboutus.jpg);
+  }
+  .page-wrapper {
+  }
+}
+/*****************************
+荟宝文化
+*****************************/
+.about-page {
+  height: 100%;
+  padding-top: 4.3rem;
+  .main-banner {
+    background-image: url(../images/wap/contact/aboutus.jpg);
+  }
+  .about-swiper-container {
+    height: 100%;
+    // height: calc(~"100% - 4.3rem");
+  }
+  img {
+    width: 100%;
+  }
+  .item-con {
+    position: relative;
+    padding: 0 2.6rem;
+    height: calc(~'100% - 11rem');
+    background: url(../images/wap/culture/aboutus1.jpg) bottom center/cover no-repeat;
+    &.item-con2 {
+      height: 100%;
+      background: url(../images/wap/culture/aboutus2.jpg) bottom center/cover no-repeat;
+    }
+    .view-more {
+      position: absolute;
+      bottom: 5rem;
+      left: 50%;
+      .translateX(-50%);
+      .line {
+        margin: 0 auto;
+        height: 3.7rem;
+        width: 1px;
+        background-color: #fff;
+        margin-bottom: 1rem;
+      }
+      .txt {
+        font-size: 1.2rem;
+        font-family: PingFang SC;
+        color: rgba(255, 255, 255, 1);
+      }
+    }
+  }
+  .item-tit {
+    text-align: center;
+    font-size: 1.8rem;
+    font-family: PingFang SC;
+    font-weight: 400;
+    color: @color;
+    padding: 3.3rem 0 2.2rem;
+  }
+  .item-txt {
+    font-size: 1.2rem;
+    font-family: PingFang SC;
+    font-weight: 400;
+    color: rgba(102, 102, 102, 1);
+    line-height: 2;
+  }
+  // 第三屏幕
+  .swiper-item03 {
+    .show-list-box {
+      flex-grow: 1;
+      // padding: 4.5rem 2.6rem 2rem;
+      padding: 3rem 2.6rem 4rem;
+    }
+    .show-list {
+      height: 100%;
+      position: relative;
+      .show-item {
+        position: relative;
+        .mul {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          .mul-icon {
+            width: 100%;
+          }
+          .mul-tit {
+            font-size: 1.6rem;
+            font-family: PingFang SC;
+            font-weight: bold;
+            color: @color;
+          }
+          .mul-line {
+          }
+          .mul-txt {
+            font-size: 1rem;
+            font-family: PingFang SC;
+            color: rgba(153, 153, 153, 1);
+          }
+        }
+        .item-l {
+          width: 45%;
+          .item-img {
+            width: 100%;
+          }
+        }
+        .item-r {
+          width: 45%;
+        }
+        .line-dot {
+          width: 4px;
+          height: 4px;
+          background-color: @color;
+          border-radius: 50%;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          .translate(-49%, -50%);
+        }
+      }
+      .line-box {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 1px;
+        height: 100%;
+        background-color: @color;
+      }
+    }
+    .v-footer {
+      flex-shrink: 0;
+    }
+  }
+}
+/*****************************
+产品介绍
+*****************************/
+.development-page {
+  padding-top: 4.3rem;
+  .main-banner {
+    background-image: url(../images/wap/others/4linan.jpg);
+  }
+  .page-wrapper {
+    .intro-box {
+      position: relative;
+      padding: 0 3.5rem 32rem;
+      background-color: rgba(158, 158, 158, 1);
+    }
+    .intro-tit {
+      text-align: center;
+      font-size: 1.8rem;
+      font-family: PingFang SC;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 1);
+      padding: 2.8rem 0 3rem;
+    }
+    .intro-txt {
+      text-align: justify;
+      font-size: 1.2rem;
+      font-family: PingFang SC;
+      color: rgba(255, 255, 255, 1);
+      line-height: 2;
+    }
+    .spread-box {
+      position: absolute;
+      bottom: 24.5rem;
+      left: 50%;
+      .translateX(-50%);
+      text-align: center;
+      .spread-icon {
+        width: 3.3rem;
+        height: 3.3rem;
+      }
+      .spread-txt {
+        padding-top: 0.8rem;
+        font-size: 1rem;
+        color: #fff;
+      }
+    }
+    .intro-bg {
+      z-index: 2;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 23rem;
+      width: 100%;
+      background: url(../images/wap/others/1.jpg) bottom center/contain no-repeat;
+    }
+    .swiper-box01 {
+      height: 33rem;
+      padding: 3.5rem 3.3rem 3.8rem;
+      background: url(../images/culture/beijing.jpg) center center/cover no-repeat;
+      position: relative;
+      .swiper-box01-inner {
+        position: relative;
+      }
+      .swiper-border-img {
+        width: 108%;
+        height: 110%;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        .translateX(-50%);
+      }
+      .swiper-container {
+        z-index: 2;
+      }
+      .swiper-pagination-bullets {
+        position: static;
+        margin-top: 3rem;
+      }
+      .swiper-pagination-bullet {
+        width: 11px;
+        height: 11px;
+        border: 1px solid rgba(255, 255, 255, 1);
+        border-radius: 50%;
+        margin: 0 10px;
+        opacity: 1;
+        background: none;
+        &.swiper-pagination-bullet-active {
+          background-color: #fff;
+        }
+      }
+      .item-t {
+        .item-img {
+          width: 100%;
+        }
+      }
+      .item-b {
+        padding: 0 2rem;
+        text-align: center;
+        height: 9rem;
+        background-color: #fff;
+        .inner-tit {
+          line-height: 1;
+          padding: 2rem 0 0.8rem;
+          font-size: 1.6rem;
+          font-family: PingFang SC;
+          color: rgba(86, 118, 91, 1);
+        }
+        .inner-txt {
+          font-size: 1.2rem;
+          font-family: PingFang SC;
+          color: rgba(102, 102, 102, 1);
+          line-height: 1.4;
+        }
+      }
+    }
+    .swiper-box02 {
+      #swiperP02 {
+        width: 82%;
+        margin: 0 auto;
+        overflow-x: auto;
+        position: static;
+        padding: 2.8rem 0 4.7rem;
+        .swiper-pagination-bullet {
+          width: auto;
+          height: auto;
+          opacity: 1;
+          line-height: 1;
+          background-color: transparent;
+          font-size: 1.2rem;
+          font-family: PingFang SC;
+          color: rgba(153, 153, 153, 1);
+          margin-right: 1.5rem;
+          white-space: nowrap;
+          outline: none;
+          &.swiper-pagination-bullet-active {
+            color: @color;
+          }
+        }
+      }
+      .swiper-box02-inner {
+        position: relative;
+        .swiper-button-prev,
+        .swiper-button-next {
+          background: url(../images/culture/left.png) center center no-repeat;
+          -webkit-background-size: 100% 100%;
+          background-size: 100% 100%;
+          width: 14px;
+          // height: 38px;
+          height: 35px;
+          top: calc(7.5rem);
+          margin-top: 0;
+          .translateY(-50%);
+        }
+        .swiper-button-prev {
+          left: 15px;
+        }
+        .swiper-button-next {
+          right: 15px;
+          background: url(../images/culture/right.png) center center no-repeat;
+          -webkit-background-size: 100% 100%;
+          background-size: 100% 100%;
+        }
+      }
+
+      .swiper-container {
+        width: 72%;
+      }
+      .swiper-item {
+        .item-t {
+          height: 15rem;
+          overflow: hidden;
+          .item-img {
+            width: 100%;
+          }
+        }
+        .item-b {
+          .item-b-top {
+            padding: 3.1rem 0 0rem;
+          }
+          .item-icon {
+            width: 1.4rem;
+            height: 1.4rem;
+            margin-right: 1.3rem;
+            margin-bottom: 1rem;
+          }
+          .item-date {
+            width: 100%;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(87, 119, 92, 1);
+            color: @color;
+            line-height: 1;
+            font-size: 1.3rem;
+          }
+          .item-b-tit {
+            font-size: 1.6rem;
+            font-family: PingFang SC;
+            color: rgba(51, 51, 51, 1);
+            padding: 1rem 0 1rem 2.7rem;
+            height: 8rem;
+            .text_hide(2);
+          }
+        }
+      }
+    }
+  }
+}
+/*****************************
+产品介绍
+*****************************/
+.product-page {
+  padding-top: 4.3rem;
+  user-select: none;
+  -webkit-user-select: none;
+  .video-box {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  .main-banner {
+  }
+  .page-wrapper {
+  }
+  .product-box {
+    // padding-top: 1.5rem;
+    padding: 1.5rem 2.6rem 0;
+    &.product-box2 {
+      .intro-tit {
+        color: @color;
+      }
+    }
+    .product-banner {
+      width: 100%;
+      position: relative;
+    }
+    .product-banner-img {
+      width: 100%;
+    }
+    .banner-tag {
+      height: 3rem;
+      position: absolute;
+      bottom: -1rem;
+      right: 0;
+    }
+    .intro-box {
+      position: absolute;
+      top: 18%;
+      right: 5%;
+      width: 50%;
+    }
+    .intro-tag {
+      margin-bottom: 0.7rem;
+    }
+    .intro-tit {
+      font-size: 1.8rem;
+      font-family: PingFang SC;
+      color: rgba(255, 255, 255, 1);
+      line-height: 2.4rem;
+    }
+    .product-txt {
+      text-align: justify;
+      font-size: 1.2rem;
+      font-family: PingFang SC;
+      color: rgba(153, 153, 153, 1);
+      line-height: 2rem;
+      padding: 2.5rem 0 3rem;
+    }
+
+    .product-list {
+      .product-item {
+        width: calc(~'50% - 1rem');
+        &:nth-child(odd) {
+          margin-right: 2rem;
+        }
+        .item-img {
+          width: 100%;
+          box-shadow: 0px 0px 0.6rem 0px rgba(0, 0, 0, 0.08);
+        }
+        .item-txt {
+          .text_one();
+          line-height: 1;
+          padding: 1.4rem 0 2rem;
+          font-size: 1.2rem;
+          font-family: PingFang SC;
+          color: rgba(102, 102, 102, 1);
+        }
+      }
+    }
+    .view-more {
+      padding: 2rem 0 3.8rem;
+      .my-svg-path {
+        stroke-dasharray: 253px, 253px;
+        stroke-dashoffset: 253px;
+        transition: stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease 0s;
+        transform: rotateZ(60deg) rotateY(180deg);
+        transform-origin: 50% 50%;
+        transition: stroke-dashoffset 1.5s;
+      }
+      #wrap,
+      #wrap2 {
+        margin: 0 auto;
+        position: relative;
+        &:active {
+          .my-svg-path {
+            stroke-dashoffset: 0;
+          }
+          .txt {
+            color: @color;
+          }
+        }
+        .txt {
+          white-space: nowrap;
+          font-size: 1.2rem;
+          font-family: PingFang SC;
+          letter-spacing: 0.2rem;
+          color: rgba(153, 153, 153, 1);
+          .transition(all 0.8s);
+          position: absolute;
+          left: 44px;
+          bottom: 15px;
+        }
+      }
+    }
+  }
+}
+/*****************************
+文章详情页（荟宝优势、申请流程）
+*****************************/
+.detail-page {
+  height: 100%;
+  padding-top: 4.3rem;
+  .main-banner {
+  }
+  .page-wrapper {
+    padding: 0 2.6rem;
+  }
+}
+/*****************************
+荟宝动态
+*****************************/
+.news-page {
+  height: 100%;
+  padding-top: 4.3rem;
+  .main-banner {
+    background-image: url(../images/wap/others/news.jpg);
+  }
+  .page-wrapper {
+    padding: 0 1.3rem;
+  }
+  .nav-list {
+    padding: 2.6rem 2.5rem;
+    .nav-item {
+      padding-bottom: 1.2rem;
+      font-size: 1.2rem;
+      font-family: PingFang SC;
+      color: rgba(153, 153, 153, 1);
+      position: relative;
+      &.active {
+        color: @color;
+        border-bottom: 1px solid @color;
+      }
+    }
+  }
+  .news-list {
+    .news-item {
+      border-bottom: 1px solid rgba(210, 210, 210, 1);
+      margin-bottom: 2.6rem;
+      text-align: center;
+      padding-bottom: 2.6rem;
+    }
+    .item-img-box {
+    }
+    .item-img {
+      width: 100%;
+    }
+    .item-other {
+      padding: 2rem 0 1.8rem;
+      font-size: 1rem;
+      font-family: PingFang SC;
+      font-weight: bold;
+      color: rgba(153, 153, 153, 1);
+      .line {
+        padding: 0 0.5rem;
+      }
+    }
+    .item-tit {
+      .text_one();
+      font-size: 1.3rem;
+      font-family: PingFang SC;
+      font-weight: bold;
+      color: rgba(34, 69, 51, 1);
+      margin-bottom: 3rem;
+    }
+    .item-btn {
+      margin: 0 auto;
+      width: 16.7rem;
+      height: 4rem;
+      border: 1px solid @color;
+      font-size: 1.2rem;
+      font-family: PingFang SC;
+      color: @color;
+    }
+  }
+  .view-more {
+    display: block;
+    width: 16.7rem;
+    margin: 0 auto;
+    height: 4rem;
+    border: 1px solid @color;
+    font-size: 1.2rem;
+    font-family: PingFang SC;
+    color: @color;
+    margin-bottom: 3rem;
+    background-color: #fff;
+  }
+}
+/*****************************
+动态详情页
+*****************************/
+.news-detail-page {
+  padding-top: 4.3rem;
+  .main-banner {
+    height: 18rem;
+    background: url(../images/wap/index/5.jpg) center center/cover no-repeat;
+  }
+  .page-wrapper {
+    padding: 2.7rem;
+  }
+  .hd {
+    border-bottom: 1px solid rgba(191, 191, 191, 1);
+    .tit {
+      overflow: hidden;
+      font-size: 1.6rem;
+      font-family: PingFang SC;
+      color: @color;
+      line-height: 2rem;
+      padding-bottom: 2.4rem;
+    }
+    .brief {
+      text-align: right;
+      padding-bottom: 1.3rem;
+      font-size: 1.2rem;
+      font-family: PingFang SC;
+      color: rgba(153, 153, 153, 1);
+    }
+    .line {
+      padding: 0 0.5rem;
+    }
+    .type {
+    }
+  }
+  .bd {
+    padding-top: 2.7rem;
+  }
+}
+/*****************************
+联系我们
+*****************************/
+.contact-page {
+  padding-top: 4.3rem;
+  .main-banner {
+    background-image: url(../images/wap/contact/contactus.jpg);
+  }
+  .page-wrapper {
+    padding: 2.7rem;
+  }
+  .contact-enter {
+    .enter-tit {
+      font-size: 1.6rem;
+      font-family: PingFang SC;
+      font-weight: 400;
+      color: rgba(51, 51, 51, 1);
+      margin-bottom: 2rem;
+    }
+    .enter-list {
+    }
+    .enter-item {
+      border: 0;
+      font-size: 1.2rem;
+      font-family: PingFang SC;
+      color: rgba(153, 153, 153, 1);
+      height: 4rem;
+      padding-left: 1.4rem;
+      margin-bottom: 2rem;
+      background: rgba(238, 238, 238, 1);
+      &.enter-item-mul {
+        height: 8.8rem;
+        padding-top: 1.2rem;
+        margin-bottom: 0;
+      }
+    }
+    .btn-submit {
+      border: 0;
+      display: block;
+      margin: 3rem auto 4.3rem;
+      width: 11.7rem;
+      height: 3.3rem;
+      background: @color;
+      font-size: 1rem;
+      font-family: PingFang SC;
+      color: #fff;
+    }
+  }
+  .contact-info {
+    text-align: center;
+    .info-logo {
+      .logo {
+        width: 6.6rem;
+      }
+    }
+    .tel-txt {
+      font-size: 0.9rem;
+      font-family: PingFang SC;
+      color: rgba(51, 51, 51, 1);
+      margin-top: 3.2rem;
+      margin-bottom: 1.2rem;
+    }
+    .tel {
+      font-size: 2rem;
+      font-family: Barlow;
+      font-weight: bold;
+      color: @color;
+    }
+  }
+}
+
+/*****************************
+网站头部下拉搜索页
+*****************************/
+// 搜索页(实际就一盒子)
+.search-box {
+  padding: 0 0.5rem 3rem;
+  height: 100%;
+  overflow-y: auto;
+  .search-hd {
+    .search-hd-top {
+      background: rgba(255, 255, 255, 1);
+      border-radius: 3px;
+      overflow: hidden;
+      padding-right: 7.6rem;
+      position: relative;
+      .enter-input {
+        height: 3.8rem;
+        font-size: 1.6rem;
+        font-family: PingFang SC;
+        color: rgba(153, 153, 153, 1);
+        padding-left: 1.8rem;
+        border: none;
+      }
+      .enter-btn {
+        position: absolute;
+        right: 1.7rem;
+        top: 50%;
+        .translateY(-50%);
+      }
+        .search-icon{
+        width: 1.7rem;
+        height: 1.7rem;
+        margin-right: 1rem;
+      }
+      .enter-txt {
+        white-space: nowrap;
+        font-size: 1.6rem;
+        color: @color;
+      }
+    }
+    .search-hd-bottom {
+      padding: 1.8rem 1rem 1.2rem;
+      font-size: 1.1rem;
+      font-family: Source Han Sans CN;
+      color: rgba(153, 153, 153, 1);
+      line-height: 1;
+      .count {
+        color: @color;
+      }
+    }
+  }
+  .search-bd {
+    &.search-list {
+      .list-item {
+        border-top: 1px solid rgba(191, 191, 191, 1);
+        padding: 1.6rem 0;
+      }
+      .item-img-box {
+        width: 40%;
+        flex-shrink: 0;
+        margin-right: 1.7rem;
+        .item-img {
+          width: 100%;
+        }
+      }
+      .item-info {
+        width: calc(~'60% - 1.7rem');
+        position: relative;
+        .item-tit {
+          .text_one();
+          font-size: 1.3rem;
+          font-family: Source Han Sans CN;
+          font-weight: bold;
+          color: rgba(66, 102, 71, 1);
+          margin-bottom: 1rem;
+        }
+        .item-txt {
+          .text_one();
+          font-size: 1rem;
+          font-family: Source Han Sans CN;
+          font-weight: 400;
+          color: rgba(102, 102, 102, 1);
+          line-height: 1.7rem;
+        }
+        .item-date {
+          position: absolute;
+          left: 0;
+          bottom: 0.3rem;
+          font-size: 0.8rem;
+          font-family: Microsoft YaHei;
+          color: rgba(153, 153, 153, 1);
+        }
+      }
+    }
+  }
+}
