@@ -1,4 +1,4 @@
-# wap
+# qy30-wap
 
 > wap demo
 

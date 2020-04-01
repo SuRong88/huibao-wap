@@ -13,6 +13,7 @@ const mutations = {
   // 获取网站信息
   SET_WEBINFO(state, data) {
     state.webInfo = data;
+    console.log(data);
   },
 
 }

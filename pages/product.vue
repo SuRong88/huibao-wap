@@ -4,42 +4,27 @@
     <main class="product-main page-wrapper">
       <!-- poster一些手机浏览器不支持，而且video高度可能会“压扁” -->
       <video poster="http://www.techviewinfo.com/_nuxt/img/708ded0.jpg" id="video" class="video-box" controls>
-         <source src="@/assets/images/wap/product/video.mp4">
+        <source src="@/assets/images/wap/product/video.mp4" />
         不支持播放该视频
       </video>
-      <!-- <div id="output" style="width: 100%; height: 500px;"></div> -->
-      <div class="product-box">
+      <div v-for="(item, index) in list" class="product-box">
         <div class="product-banner">
-          <img class="product-banner-img" src="@/assets/images/wap/product/banner1.jpg" alt="" />
+          <img class="product-banner-img" :src="item.bg_img" />
           <div class="intro-box">
-            <img class="intro-tag" src="@/assets/images/culture/tag.png" alt="" />
-            <p class="intro-tit">双重抗初老能量 逆转时光焕现美</p>
+            <img class="intro-tag" :src="item.tag_img" alt="" />
+            <p class="intro-tit">{{ item.propaganda }}</p>
           </div>
           <img class="banner-tag" src="@/assets/images/others/MyAloneGarden.png" alt="" />
         </div>
-        <p class="product-txt">
-          利用先进的工艺提取技术，让芦荟的美容护理功效以更温和、更有效的形式完美呈现，舒缓保湿，有效缓解换季、压力、孕期等肌肤不适状况，打败疲惫和脆弱状态，日复一日，肌肤焕发健康光采！
-        </p>
+        <p class="product-txt">{{ item.profiles }}</p>
         <div class="mul-box">
           <ul class="product-list flex flex-wrap">
-            <li class="product-item">
-              <img class="item-img" src="@/assets/images/others/a.jpg" alt="" />
-              <p class="item-txt">荟宝芦荟多肽提拉洁面乳</p>
-            </li>
-            <li class="product-item">
-              <img class="item-img" src="@/assets/images/others/b.jpg" alt="" />
-              <p class="item-txt">荟宝芦荟多肽提拉眼部精华液</p>
-            </li>
-            <li class="product-item">
-              <img class="item-img" src="@/assets/images/others/c.jpg" alt="" />
-              <p class="item-txt">荟宝芦荟多肽提拉洁面乳</p>
-            </li>
-            <li class="product-item">
-              <img class="item-img" src="@/assets/images/others/d.jpg" alt="" />
-              <p class="item-txt">荟宝芦荟多肽提拉洁面乳</p>
+            <li v-for="(subItem, subIndex) in item.product_data" class="product-item">
+              <img class="item-img" :src="subItem.product_img" alt="" />
+              <p class="item-txt">{{ subItem.product_title }}</p>
             </li>
           </ul>
-          <div class="view-more">
+          <a :href="item.link_url" target="_blank" class="view-more">
             <div id="wrap" style="width: 60px;height: 60px;">
               <svg viewBox="0 0 100 100">
                 <path d="M 50 50 m -40 0 a 40 40 0 1 0 80 0  a 40 40 0 1 0 -80 0" fill="none" stroke="rgba(210,210,210,1)" stroke-width="2">></path>
@@ -55,10 +40,11 @@
               </svg>
               <p class="txt">查看更多</p>
             </div>
-          </div>
+          </a>
         </div>
       </div>
-      <div class="product-box product-box2">
+      <!-- 第二套主题 -->
+      <div v-if="false" class="product-box product-box2">
         <div class="product-banner">
           <img class="product-banner-img" src="@/assets/images/wap/product/banner2.jpg" alt="" />
           <div class="intro-box">
@@ -116,16 +102,6 @@
 <script>
 import URL from '@/plugins/url.js';
 export default {
-  // default模板
-  // layout: function(context) {
-  //   return 'default-demo';
-  // },
-  // 参数校验（失败直接跳转至404页面）
-  // validate({ params, route }) {
-  //   // 必须是number类型
-  //   return /^\d+$/.test(params.id);
-  // },
-  watchQuery: true,
   components: {
     vHeader: resolve => require(['@/components/vHeader'], resolve),
     vFooter: resolve => require(['@/components/vFooter'], resolve)
@@ -148,53 +124,26 @@ export default {
     };
   },
   async asyncData({ store, params, query, route, app }) {
-    let SEOInfo = null;
-    await app.$axios
-      .get(URL.getSEOInfo, {
+    let [res01, res02] = await Promise.all([
+      app.$axios.get(URL.getIntroduceList),
+      app.$axios.get(URL.getSEOInfo, {
         params: {
-          name: '/'
+          type: 'custom',
+          client: 2,
+          module_id: 'product'
         }
       })
-      .then(res => {
-        SEOInfo = res.data;
-        console.log('async请求成功');
-      })
-      .catch(err => {
-        console.log(err);
-        console.log('async请求失败');
-      });
+    ]);
     return {
-      SEOInfo: SEOInfo
+      list: res01.data,
+      SEOInfo: res02.data
     };
   },
   created() {},
-  mounted() {
-    // (function() {
-    //   var video, output;
-    //   var scale = 0.8;
-    //   var initialize = function() {
-    //     output = document.getElementById('output');
-    //     video = document.getElementById('video');
-    //     video.addEventListener('loadeddata', captureImage);
-    //   };
-    //   var captureImage = function() {
-    //     var canvas = document.createElement('canvas');
-    //     canvas.width = video.videoWidth * scale;
-    //     canvas.height = video.videoHeight * scale;
-    //     canvas.getContext('2d').drawImage(video, 5, 10, canvas.width, canvas.height);
-
-    //     var img = document.createElement('img');
-    //     img.src = canvas.toDataURL('image/png');
-    //     img.style.width = '100%';
-    //     img.style.height = '100%';
-    //     output.appendChild(img);
-    //   };
-    //   initialize();
-    // })();
-  },
   data() {
     return {
-      SEOInfo: {}
+      SEOInfo: {},
+      list: []
     };
   },
   computed: {}

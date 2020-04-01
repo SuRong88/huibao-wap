@@ -35,15 +35,6 @@
 <script>
 import URL from '@/plugins/url.js';
 export default {
-  // default模板
-  // layout: function(context) {
-  //   return 'default-demo';
-  // },
-  // 参数校验（失败直接跳转至404页面）
-  // validate({ params, route }) {
-  //   // 必须是number类型
-  //   return /^\d+$/.test(params.id);
-  // },
   watchQuery: true,
   components: {
     vSidebar(resolve) {

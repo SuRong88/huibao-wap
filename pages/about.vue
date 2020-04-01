@@ -85,12 +85,6 @@
                 <div class="item-r"><img class="item-img" src="@/assets/images/culture/Quality-Extrac.jpg" alt="" /></div>
               </li>
               <div class="line-box">
-                <!-- <div class="dot-box">
-                 <div class="line-dot"></div>
-                 <div class="line-dot"></div>
-                 <div class="line-dot"></div>
-                 <div class="line-dot"></div>
-               </div> -->
               </div>
             </ul>
           </div>
@@ -104,16 +98,6 @@
 <script>
 import URL from '@/plugins/url.js';
 export default {
-  // default模板
-  // layout: function(context) {
-  //   return 'default-demo';
-  // },
-  // 参数校验（失败直接跳转至404页面）
-  // validate({ params, route }) {
-  //   // 必须是number类型
-  //   return /^\d+$/.test(params.id);
-  // },
-  watchQuery: true,
   components: {
     vHeader: resolve => require(['@/components/vHeader'], resolve),
     vFooter: resolve => require(['@/components/vFooter'], resolve)
@@ -136,23 +120,18 @@ export default {
     };
   },
   async asyncData({ store, params, query, route, app }) {
-    let SEOInfo = null;
-    await app.$axios
-      .get(URL.getSEOInfo, {
+    let [res01] = await Promise.all([
+      app.$axios.get(URL.getSEOInfo, {
         params: {
-          name: '/'
+          type: 'custom',
+          client: 2,
+          module_id: 'about'
         }
       })
-      .then(res => {
-        SEOInfo = res.data;
-        console.log('async请求成功');
-      })
-      .catch(err => {
-        console.log(err);
-        console.log('async请求失败');
-      });
+    ]);
+    console.log(res01.data);
     return {
-      SEOInfo: SEOInfo
+      SEOInfo: res01.data
     };
   },
   created() {},
@@ -168,14 +147,11 @@ export default {
         spaceBetween: 0,
         pagination: {
           el: '.swiper-pagination'
-          // dynamicBullets: true
         },
         on: {
           slideChange() {
-            // console.log('onSlideChangeEnd', this);
           },
           tap() {
-            // console.log('onTap', this);
           }
         }
       }

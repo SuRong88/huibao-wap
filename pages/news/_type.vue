@@ -10,25 +10,24 @@
       </div>
       <div class="page-wrapper">
         <ul class="nav-list flex flex-sa">
-          <li @click="navToggle('all')" class="nav-item" :class="{ active: type == 'all' }">全部</li>
-          <li @click="navToggle('information')" class="nav-item" :class="{ active: type == 'information' }">品牌资讯</li>
-          <li @click="navToggle('activity')" class="nav-item" :class="{ active: type == 'activity' }">品牌活动</li>
+          <li v-for="(item, index) in typeList" :key="index" @click="navToggle(item.id)" class="nav-item" :class="{ active: type == item.id }">{{ item.name }}</li>
         </ul>
         <ul v-if="list.length > 0" class="news-list">
           <li v-for="(item, index) in list" :key="index" class="news-item">
-            <div class="item-img-box"><img class="item-img" :src="item.coverUrl" alt="" /></div>
+            <div class="item-img-box"><img class="item-img" :src="item.img" alt="" /></div>
             <div class="item-info">
               <p class="item-other">
                 <span class="item-type">{{ item.type }}</span>
                 <span class="line">|</span>
-                <span class="item-date">{{ item.date | dateformat('YYYY.MM.DD') }}</span>
+                <span class="item-date">{{ item.time | dateformat('YYYY.MM.DD') }}</span>
               </p>
-              <p class="item-tit">{{ type }}{{ item.title }}</p>
-              <nuxt-link :to="'/detail/' + item.id"  class="item-btn flex flex-center">查看详情</nuxt-link>
+              <p class="item-tit">{{ item.name }}</p>
+              <nuxt-link :to="'/newsDetail/' + item.id" class="item-btn flex flex-center">查看详情</nuxt-link>
             </div>
           </li>
         </ul>
-        <button @click="" class="view-more">查看更多</button>
+        <button v-show="!isLastPage && total_page != 0" @click="viewMore" class="view-more">查看更多</button>
+        <p v-show="isLastPage && total_page != 0" class="nomore-tip">加载完毕</p>
       </div>
     </main>
     <v-footer></v-footer>
@@ -38,19 +37,10 @@
 <script>
 import URL from '@/plugins/url.js';
 export default {
-  // default模板
-  // layout: function(context) {
-  //   return 'default-demo';
-  // },
-  // 参数校验（失败直接跳转至404页面）
-  // validate({ params, route }) {
-  //   // 必须是number类型
-  //   return /^\d+$/.test(params.id);
-  // },
   watchQuery: true,
   components: {
-   vHeader: resolve => require(['@/components/vHeader'], resolve),
-   vFooter: resolve => require(['@/components/vFooter'], resolve)
+    vHeader: resolve => require(['@/components/vHeader'], resolve),
+    vFooter: resolve => require(['@/components/vFooter'], resolve)
   },
   head() {
     return {
@@ -70,101 +60,103 @@ export default {
     };
   },
   async asyncData({ store, params, query, route, app }) {
-    let SEOInfo = null;
-    let type = params.type || 'all';
-    await app.$axios
-      .get(URL.getSEOInfo, {
+    // 文章分类id
+    let type = params.type == '-1' || !params.type ? -1 : params.type;
+    console.log('type' + type);
+    let [res01, res02, res03] = await Promise.all([
+      app.$axios.get(URL.getArticleType),
+      app.$axios.get(URL.getArticleList, {
         params: {
-          name: '/'
+          classify_id: type,
+          client: 2,
+          page: 1,
+          rownum: 2
+        }
+      }),
+      app.$axios.get(URL.getSEOInfo, {
+        params: {
+          type: 'article_list',
+          client: 2,
+          module_id: type
         }
       })
-      .then(res => {
-        SEOInfo = res.data;
-        console.log('async请求成功');
-      })
-      .catch(err => {
-        console.log(err);
-        console.log('async请求失败');
-      });
+    ]);
+    res01.data.unshift({
+      id: 'all',
+      name: '全部',
+      template: 'article_default'
+    });
+    let pagination = res02.data.pagination;
     return {
-      SEOInfo: SEOInfo,
-      type: type
+      type: params.type == -1 ? 'all' : params.type,
+      typeList: res01.data,
+      list: res02.data.list,
+      limit: pagination.rownum,
+      current_page: pagination.current,
+      total_page: pagination.total_page,
+      total: pagination.total,
+      isLastPage: pagination.current == pagination.total_page,
+      SEOInfo: res03.data
     };
   },
   created() {},
   mounted() {
-    window.addEventListener('scroll',()=>{
-      this.$scrollBottom(()=>{
-        console.log(this.current_page++);
-      })
-    })
+    window.addEventListener('scroll', () => {
+      this.$scrollBottom(() => {
+        console.log(this.current_page+1);
+      });
+    });
   },
   data() {
     return {
       SEOInfo: {},
+      typeList: [],
       // 类型
       type: 'all',
-      //
-      list: [
-        {
-          id: 1,
-          title: '新品曝光 | 为了这场见面，我们准备了3年',
-          desc: '芦荟护肤的概念早已深入人心，市场上的芦荟品牌也是琳琅满目，而在芦荟领…',
-          coverUrl: require('@/assets/images/others/1.jpg'),
-          type: '品牌活动',
-          date: '2019-01-02 15:01:15'
-        },
-        {
-          id: 2,
-          title: '新品曝光 | 为了这场见面，我们准备了3年',
-          desc: '芦荟护肤的概念早已深入人心，市场上的芦荟品牌也是琳琅满目，而在芦荟领…',
-          coverUrl: require('@/assets/images/others/2.jpg'),
-          type: '品牌资讯',
-          date: '2019-01-02 15:01:15'
-        },
-        {
-          id: 3,
-          title: '新品曝光 | 为了这场见面，我们准备了3年',
-          desc: '芦荟护肤的概念早已深入人心，市场上的芦荟品牌也是琳琅满目，而在芦荟领…',
-          coverUrl: require('@/assets/images/others/3.jpg'),
-          type: '品牌活动',
-          date: '2019-01-02 15:01:15'
-        },
-        {
-          id: 4,
-          title: '新品曝光 | 为了这场见面，我们准备了3年',
-          desc: '芦荟护肤的概念早已深入人心，市场上的芦荟品牌也是琳琅满目，而在芦荟领…',
-          coverUrl: require('@/assets/images/others/4.jpg'),
-          type: '品牌资讯',
-          date: '2019-01-02 15:01:15'
-        },
-        {
-          id: 5,
-          title: '新品曝光 | 为了这场见面，我们准备了3年',
-          desc: '芦荟护肤的概念早已深入人心，市场上的芦荟品牌也是琳琅满目，而在芦荟领…',
-          coverUrl: require('@/assets/images/others/5.jpg'),
-          type: '品牌活动',
-          date: '2019-01-02 15:01:15'
-        },
-        {
-          id: 6,
-          title: '新品曝光 | 为了这场见面，我们准备了3年',
-          desc: '芦荟护肤的概念早已深入人心，市场上的芦荟品牌也是琳琅满目，而在芦荟领…',
-          coverUrl: require('@/assets/images/others/6.jpg'),
-          type: '品牌资讯',
-          date: '2019-01-02 15:01:15'
-        }
-      ],
-      current_page:0
+      limit: 2,
+      current_page: 1,
+      total_page: 0,
+      total: 0,
+      list: [],
+      isLastPage: false
     };
   },
   methods: {
+    // 分类切换
     navToggle(type) {
       this.$router.push({
         params: {
           type: type
         }
       });
+    },
+    // 查看更多
+    viewMore() {
+      let that = this;
+      let type = this.$route.params.type == '-1' || !this.$route.params.type ? -1 : this.$route.params.type;
+      this.$axios
+        .get(URL.getArticleList, {
+          params: {
+            classify_id: type,
+            client: 2,
+            page: ++that.current_page,
+            rownum: 2
+          }
+        })
+        .then(res => {
+          let data = res.data;
+          let pagination = data.pagination
+          that.list = that.list.concat(data.list);
+          // 可省略
+          that.current_page = pagination.current
+          that.total_page = pagination.total_page
+          that.total = pagination.total
+          // 可省略end
+          that.isLastPage = pagination.current == pagination.total_page;
+        })
+        .catch(err => {
+          return this.$errorToast('数据获取失败');
+        });
     }
   }
 };

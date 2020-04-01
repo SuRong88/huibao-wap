@@ -79,16 +79,6 @@
 <script>
 import URL from '@/plugins/url.js';
 export default {
-  // default模板
-  // layout: function(context) {
-  //   return 'default-demo';
-  // },
-  // 参数校验（失败直接跳转至404页面）
-  // validate({ params, route }) {
-  //   // 必须是number类型
-  //   return /^\d+$/.test(params.id);
-  // },
-  watchQuery: true,
   components: {
     vHeader: resolve => require(['@/components/vHeader'], resolve),
     vFooter: resolve => require(['@/components/vFooter'], resolve)
@@ -111,31 +101,19 @@ export default {
     };
   },
   async asyncData({ store, params, query, route, app }) {
-    let SEOInfo = null;
-    await app.$axios
-      .get(URL.getSEOInfo, {
+    let [res01] = await Promise.all([
+      app.$axios.get(URL.getSEOInfo, {
         params: {
-          name: '/'
+          type: 'custom',
+          client: 2,
+          module_id: 'development'
         }
       })
-      .then(res => {
-        SEOInfo = res.data;
-        console.log('async请求成功');
-      })
-      .catch(err => {
-        console.log(err);
-        console.log('async请求失败');
-      });
+    ]);
     return {
-      SEOInfo: SEOInfo
+      SEOInfo: res01.data
     };
   },
-  created() {},
-  // mounted() {
-  //   setTimeout(()=>{
-  //     document.getElementById('#swiperP02').scrollLeft = '20px'
-  //   },2000)
-  // },
   data() {
     let that = this;
     return {
@@ -159,7 +137,7 @@ export default {
         spaceBetween: 10,
         pagination: {
           el: '#swiperP02',
-          clickable:true,
+          clickable: true,
           renderBullet: (index, className) => {
             return '<span class="' + className + '">' + this.$formatDate(this.bannerList02[index].date, 'YYYY ~') + '</span>';
           }
@@ -228,7 +206,7 @@ export default {
           tit: '002荟宝三大系列108单品亮相全国。',
           date: '2008-12-01 15:01:22',
           coverUrl: require('@/assets/images/others/1.jpg')
-        },
+        }
       ]
     };
   },
