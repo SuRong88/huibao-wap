@@ -1,7 +1,8 @@
 <template>
   <div class="v-footer">
     <div class="copyright">
-      {{ webInfo.website_copyright }}
+      {{ $getEditorText(webInfo.website_copyright) }}
+      <br>
       <a href="http://www.beian.miit.gov.cn" target="_blank">{{ webInfo.website_icp_numb }}</a>
     </div>
   </div>

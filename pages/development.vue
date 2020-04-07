@@ -122,7 +122,7 @@ export default {
       swiperOption01: {
         loop: false,
         speed: 800,
-        spaceBetween: 10,
+        spaceBetween: 0,
         pagination: {
           el: '#swiperP01'
         },
@@ -152,17 +152,17 @@ export default {
         {
           tit: '公司业务',
           txt: '生产研发、培训教育、营销运作、加盟连锁',
-          coverUrl: require('@/assets/images/culture/3yewu.jpg')
+          coverUrl: require('@/assets/images/wap/others/m1.jpg')
         },
         {
           tit: '品牌理念',
           txt: '高品质、高形象、高服务',
-          coverUrl: require('@/assets/images/culture/4linan.jpg')
+          coverUrl: require('@/assets/images/wap/others/m2.jpg')
         },
         {
           tit: '核心价值观',
           txt: '直接表达想法 高效相互协作<br>维护契约精神 一起快乐工作',
-          coverUrl: require('@/assets/images/culture/5jiazhiguan.jpg')
+          coverUrl: require('@/assets/images/wap/others/m3.jpg')
         }
       ],
       //第二个轮播数组

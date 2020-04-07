@@ -170,11 +170,7 @@ section {
   padding: 0;
   .bs_bb();
   outline: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
 }
-
 li,
 dt,
 dd {
@@ -439,7 +435,7 @@ input:disabled {
   width: 50% !important;
 }
 
-.w-max {
+.w-full {
   width: 100% !important;
 }
 
@@ -524,6 +520,13 @@ input:disabled {
 /*****************************
 页面样式
 *****************************/
+* {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -webkit-overflow-scrolling: touch;
+}
+
 html,
 body,
 #__nuxt,
@@ -740,17 +743,6 @@ body,
   }
 }
 /*****************************
-品牌故事
-*****************************/
-.story-page {
-  padding: 4.3rem 0 0;
-  .main-banner {
-    background-image: url(../images/wap/contact/aboutus.jpg);
-  }
-  .page-wrapper {
-  }
-}
-/*****************************
 荟宝文化
 *****************************/
 .about-page {
@@ -771,9 +763,11 @@ body,
     padding: 0 2.6rem;
     height: calc(~'100% - 11rem');
     background: url(../images/wap/culture/aboutus1.jpg) bottom center/cover no-repeat;
+    background-position-y: 5vh;
     &.item-con2 {
       height: 100%;
       background: url(../images/wap/culture/aboutus2.jpg) bottom center/cover no-repeat;
+      background-position-y: 0;
     }
     .view-more {
       position: absolute;
@@ -1205,12 +1199,12 @@ body,
 *****************************/
 .detail-page {
   height: 100%;
-  padding-top: 4.3rem;
-  .main-banner {
-  }
-  .page-wrapper {
-    padding: 0 2.6rem;
-  }
+  // padding-top: 4.3rem;
+  // .main-banner {
+  // }
+  // .page-wrapper {
+  //   padding: 0 2.6rem;
+  // }
 }
 /*****************************
 荟宝动态
@@ -1249,6 +1243,7 @@ body,
     }
     .item-img {
       width: 100%;
+      height: 17.6rem;
     }
     .item-other {
       padding: 2rem 0 1.8rem;
@@ -1409,7 +1404,6 @@ body,
     }
   }
 }
-
 /*****************************
 网站头部下拉搜索页
 *****************************/
@@ -1467,7 +1461,7 @@ body,
       .list-item {
         border-top: 1px solid rgba(191, 191, 191, 1);
         padding: 1.6rem 0;
-        min-height: 12rem;
+        // min-height: 12rem;
       }
       .item-img-box {
         width: 40%;
@@ -1475,6 +1469,7 @@ body,
         margin-right: 1.7rem;
         .item-img {
           width: 100%;
+          height: 6.7rem;
         }
       }
       .item-info {
@@ -1499,7 +1494,8 @@ body,
         .item-date {
           position: absolute;
           left: 0;
-          bottom: 0.3rem;
+          bottom: 3px;
+          line-height: 1;
           font-size: 0.8rem;
           font-family: Microsoft YaHei;
           color: rgba(153, 153, 153, 1);

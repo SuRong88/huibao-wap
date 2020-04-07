@@ -43,12 +43,13 @@
           </ul>
           <!-- 微信 -->
           <div class="info-box">
-            <button class="info-wechat">
+            <img v-show="showQrcode" class="qrcode" :src="webInfo.qrcode_ph" alt="" />
+            <button @click="showQrcode = !showQrcode" class="info-wechat">
               <img class="icon" src="@/assets/images/wap/index/wechat.png" alt="" />
               官方微信
             </button>
             <p class="info-copyright">
-              {{ webInfo.website_copyright }}
+              <span v-html="webInfo.website_copyright"></span>
               <br />
               <a href="http://www.beian.miit.gov.cn" target="_blank">{{ webInfo.website_icp_numb }}</a>
             </p>
@@ -76,14 +77,14 @@
           </div>
           <!-- 搜索页面>>搜索结果 -->
           <ul class="search-bd search-list flex-1">
-            <li v-for="(item, index) in list" :key="item.id" class="list-item flex">
+            <nuxt-link :to="'/newsDetail/' + item.id" tag="li" v-for="(item, index) in list" :key="item.id" class="list-item flex">
               <div class="item-img-box"><img class="item-img" :src="item.img" alt="" /></div>
               <div class="item-info">
                 <h3 class="item-tit">{{ item.name }}</h3>
                 <p class="item-txt">{{ item.summary }}</p>
                 <p class="item-date">{{ item.time | dateformat('YYYY.MM.DD') }}</p>
               </div>
-            </li>
+            </nuxt-link>
             <button @click="loadMore" v-show="!isEnding && total_page != 0" class="loadmore-btn">加载更多</button>
             <p v-show="isEnding && total_page != 0" class="nomore-tip">加载完毕</p>
           </ul>
@@ -131,8 +132,8 @@ export default {
       });
     if (process.client) {
       // this.spread = sessionStorage.getItem('isActived') || false;
-      this.currentIndex = sessionStorage.getItem('currentIndex') * 1 || -1;
-      this.currentSubIndex = sessionStorage.getItem('currentSubIndex') * 1 || -1;
+      this.currentIndex = sessionStorage.getItem('currentIndex') || -1;
+      this.currentSubIndex = sessionStorage.getItem('currentSubIndex') || -1;
     }
   },
   data() {
@@ -143,6 +144,8 @@ export default {
       spread: false,
       // 展开搜索页
       isSearch: false,
+      // 显示官方微信二维码
+      showQrcode: false,
       // 导航栏
       navList: [],
       /* 搜索data*/
@@ -150,7 +153,7 @@ export default {
       searchWord: '',
       // url的搜索关键字
       keyword: '',
-      limit: 1,
+      limit: 6,
       current_page: 1,
       total_page: 0,
       total: 0,
@@ -248,7 +251,7 @@ export default {
       // 清空搜索相关data
       this.searchWord = '';
       this.keyword = '';
-      this.limit = 1;
+      this.limit = 6;
       this.current_page = 1;
       this.total_page = 0;
       this.total = 0;
@@ -281,7 +284,8 @@ export default {
           params: {
             keyword: this.searchWord,
             page: 1,
-            rownum: this.limit
+            rownum: this.limit,
+            client: 2
           }
         })
         .then(res => {
@@ -301,7 +305,8 @@ export default {
           params: {
             keyword: this.searchWord,
             page: ++this.current_page,
-            rownum: this.limit
+            rownum: this.limit,
+            client: 2
           }
         })
         .then(res => {
@@ -336,7 +341,6 @@ export default {
     .header-b {
       transform: translateY(0%);
     }
-
     .icon-fold {
       background-image: url(../assets/images/wap/index/close.png) !important;
     }
@@ -349,7 +353,6 @@ export default {
   height: 100%;
   position: relative;
   z-index: 2;
-  // background-color: rgba(0,0,0,0.3);
 }
 
 .logo {
@@ -397,8 +400,8 @@ export default {
   padding-top: 0.4rem;
   width: 100%;
   margin-bottom: 2rem;
-  // height: 100%;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   &::-webkit-scrollbar {
     width: 0 !important;
   }
@@ -419,7 +422,6 @@ export default {
     }
 
     .nav-item-outer {
-      // height: 4.2rem;
       padding: 1.3rem 0;
       line-height: 1;
       color: @color;
@@ -457,6 +459,15 @@ export default {
 .info-box {
   width: 100%;
   text-align: center;
+  position: relative;
+  .qrcode {
+    width: 10rem;
+    top: -12rem;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    position: absolute;
+  }
   .info-wechat {
     height: 4rem;
     width: 16.7rem;

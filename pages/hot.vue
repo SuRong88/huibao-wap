@@ -78,7 +78,7 @@ export default {
     let [res01, res02] = await Promise.all([
       app.$axios.get(URL.getIntroduceList, {
         params: {
-          type: 0,
+          type: 1,
           client: 2
         }
       }),

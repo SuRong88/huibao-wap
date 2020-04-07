@@ -8,14 +8,7 @@
           <h2 class="tit-en">{{ testArr[testId - 1].titleEn }}</h2>
         </div>
       </div>
-      <div class="page-wrapper edit_textBox">
-        <p v-if="testId == 1" class="test">
-          <img src="@/assets/images/wap/others/13.jpg" alt="" />
-          <img src="@/assets/images/wap/others/14.jpg" alt="" />
-          <img src="@/assets/images/wap/others/15.jpg" alt="" />
-          <img src="@/assets/images/wap/others/16.jpg" alt="" />
-        </p>
-        <p v-else class="test" style="padding: 3rem;"><img src="@/assets/images/wap/others/17.jpg" alt="" /></p>
+      <div class="page-wrapper edit_textBox" v-html="detail">
       </div>
     </main>
     <v-footer></v-footer>

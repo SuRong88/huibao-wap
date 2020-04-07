@@ -6,9 +6,23 @@
         <div class="swiper-wrapper">
           <div class="swiper-slide swiper-item" v-for="item in bannerList">
             <!-- 1外链 -->
-            <a v-if="item.link_type == 1" target="_blank" class="swiper-item-inner" :style="'background-image: url(' + item.img + ');'" :href="item.link" :title="item.name"></a>
+            <a
+              v-if="item.link_type == 1"
+              :target="item.open == 0 ? '_blank' : ''"
+              class="swiper-item-inner"
+              :style="'background-image: url(' + item.img + ');'"
+              :href="item.link"
+              :title="item.name"
+            ></a>
             <!-- 2内链 -->
-            <nuxt-link v-else class="swiper-item-inner" :style="'background-image: url(' + item.img + ');'" :to="item.link" :title="item.name"></nuxt-link>
+            <nuxt-link
+              v-else
+              class="swiper-item-inner"
+              :style="'background-image: url(' + item.img + ');'"
+              :to="item.link"
+              :title="item.name"
+              :target="item.open == 0 ? '_blank' : ''"
+            ></nuxt-link>
           </div>
         </div>
         <div id="swiperP" class="swiper-pagination swiper-pagination-bullets flex flex-ver flex-align-center"></div>

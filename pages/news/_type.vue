@@ -70,7 +70,7 @@ export default {
           classify_id: type,
           client: 2,
           page: 1,
-          rownum: 2
+          rownum: 6
         }
       }),
       app.$axios.get(URL.getSEOInfo, {
@@ -140,7 +140,7 @@ export default {
             classify_id: type,
             client: 2,
             page: ++that.current_page,
-            rownum: 2
+            rownum: 6
           }
         })
         .then(res => {
