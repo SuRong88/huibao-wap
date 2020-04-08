@@ -441,9 +441,9 @@ input:disabled {
 
 .edit_textBox {
   word-break: break-all;
-  font-size: 16px;
+  font-size: 1.3rem;
   line-height: 1.4;
-  color: #000;
+  color: #666;
 
   * {
     font-size: inherit;
@@ -1199,7 +1199,7 @@ body,
 *****************************/
 .detail-page {
   height: 100%;
-  // padding-top: 4.3rem;
+  padding-top: 4.3rem;
   // .main-banner {
   // }
   // .page-wrapper {
@@ -1222,7 +1222,8 @@ body,
     padding: 2.6rem 2.5rem;
     .nav-item {
       padding-bottom: 1.2rem;
-      font-size: 1.2rem;
+      // font-size: 1.2rem;
+      font-size: 1.3rem;
       font-family: PingFang SC;
       color: rgba(153, 153, 153, 1);
       position: relative;
@@ -1247,9 +1248,9 @@ body,
     }
     .item-other {
       padding: 2rem 0 1.8rem;
-      font-size: 1rem;
+      // font-size: 1rem;
+      font-size: 1.2rem;
       font-family: PingFang SC;
-      font-weight: bold;
       color: rgba(153, 153, 153, 1);
       .line {
         padding: 0 0.5rem;
@@ -1257,9 +1258,9 @@ body,
     }
     .item-tit {
       .text_one();
-      font-size: 1.3rem;
+      font-size: 1.5rem;
       font-family: PingFang SC;
-      font-weight: bold;
+      font-weight: 700;
       color: rgba(34, 69, 51, 1);
       margin-bottom: 3rem;
     }
@@ -1268,7 +1269,8 @@ body,
       width: 16.7rem;
       height: 4rem;
       border: 1px solid @color;
-      font-size: 1.2rem;
+      // font-size: 1.2rem;
+      font-size: 1.4rem;
       font-family: PingFang SC;
       color: @color;
     }
@@ -1320,7 +1322,8 @@ body,
     .brief {
       text-align: right;
       padding-bottom: 1.3rem;
-      font-size: 1.2rem;
+      // font-size: 1.2rem;
+      font-size: 1.3rem;
       font-family: PingFang SC;
       color: rgba(153, 153, 153, 1);
     }
@@ -1426,6 +1429,10 @@ body,
         color: rgba(153, 153, 153, 1);
         padding-left: 1.8rem;
         border: none;
+        /* 使用webkit内核的浏览器 */
+        &::-webkit-input-placeholder {
+          line-height: 1.3;
+        }
       }
       .enter-btn {
         position: absolute;

@@ -4,7 +4,18 @@
     <main class="product-main page-wrapper">
       <div v-for="(item, index) in list">
         <!-- poster一些手机浏览器不支持，而且video高度可能会“压扁” -->
-        <video v-if="item.product_video" autoplay :poster="item.cover_img" id="video" class="video-box" controls>
+        <video
+          v-if="item.product_video"
+          autoplay
+          :poster="item.cover_img"
+          id="video"
+          class="video-box"
+          controls
+          webkit-playsinline
+          playsinline
+          x5-playsinline
+          x-webkit-airplay="allow"
+        >
           <source :src="item.product_video" />
           不支持播放该视频
         </video>
