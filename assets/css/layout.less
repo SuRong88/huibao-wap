@@ -584,7 +584,8 @@ body,
     .tit-cn {
       font-size: 1.6rem;
       font-family: PingFang SC;
-      font-weight: bold;
+      // font-weight: bold;
+      font-weight: 400;
       color: rgba(255, 255, 255, 1);
       padding-bottom: 0.8rem;
       position: relative;
@@ -603,7 +604,8 @@ body,
       padding-top: 0.8rem;
       font-size: 1rem;
       font-family: PingFang SC;
-      font-weight: bold;
+      // font-weight: bold;
+      font-weight: 400;
       color: rgba(255, 255, 255, 1);
     }
   }
@@ -638,20 +640,159 @@ body,
     color: rgba(153, 153, 153, 1);
   }
 }
-
+/*****************************
+荟宝优势
+*****************************/
+.advantage-page {
+  padding-top: 4.3rem;
+  .img-box {
+    .img {
+      width: 100%;
+    }
+  }
+  .img-box10 {
+    position: relative;
+    .inf-list {
+      width: 95%;
+      position: absolute;
+      top: 42%;
+      left: 50%;
+      z-index: 2;
+      transform: translateX(-50%);
+    }
+    .inf-item {
+      width: 32%;
+      margin-left: 2%;
+      border: 1px solid rgba(240, 234, 217, 1);
+      &:first-child {
+        margin-left: 0;
+      }
+      .item-t {
+        margin-bottom: 0.5rem;
+        .item-img {
+          width: 100%;
+          height: 14.5rem;
+        }
+      }
+      .item-b {
+        height: 8.4rem;
+        padding: 0.8rem 0.7rem;
+        background: rgba(240, 234, 217, 1);
+        .item-tit {
+          font-size: 1.2rem;
+          color: rgba(95, 123, 48, 1);
+          margin-bottom: 0.5rem;
+          .text_one();
+        }
+        .item-desc {
+          font-size: 0.7rem;
+          color: rgba(95, 123, 48, 1);
+          line-height: 1rem;
+          .text_hide(5);
+        }
+      }
+    }
+  }
+  .img-box12 {
+    position: relative;
+    margin-top: -6%;
+    .img {
+      width: 100%;
+    }
+    .link-img {
+      width: 100%;
+    }
+    // height: 90rem;
+    // background-color: #f1ebdb;
+    // .link01 {
+    //   width: 90%;
+    //   position: absolute;
+    //   top: 4%;
+    //   left: 50%;
+    //   transform: translateX(-50%);
+    // }
+    // .link02 {
+    //   width: 85%;
+    //   position: absolute;
+    //   bottom: 5%;
+    //   left: 50%;
+    //   transform: translateX(-50%);
+    // }
+    // .link-img {
+    //   width: 100%;
+    // }
+  }
+  .v-footer {
+    background-color: #f2ebd9;
+  }
+}
 /*****************************
 品牌故事
 *****************************/
 .story-page {
   padding: 4.3rem 0 0;
   .main-banner {
-    background-image: url(../images/wap/contact/aboutus.jpg);
+    background-image: url(../images/wap/about/banner.jpg);
+    .banner-title-box {
+      .tit-cn,
+      .tit-en {
+        color: @color;
+      }
+      .tit-cn {
+        &::after {
+          background-color: @color;
+        }
+      }
+    }
   }
   .page-wrapper {
+    .sec01 {
+      text-align: center;
+      .line {
+        width: 1px;
+        height: 2.3rem;
+        background: @color;
+        margin: 2.4rem auto;
+      }
+    }
+    .sec02 {
+      text-align: center;
+      height: 10rem;
+      background: rgba(95, 123, 48, 0.2);
+      font-size: 1.2rem;
+      font-family: PingFang SC;
+      color: rgba(45, 85, 51, 1);
+      line-height: 2;
+    }
+    .sec03 {
+      padding: 0 3rem;
+      .sec03-item {
+        padding: 3rem 0 2.4rem;
+        text-align: center;
+        border-bottom: 1px solid #e5e5e5;
+        &:last-child {
+          padding-bottom: 6rem;
+          border-bottom: none;
+        }
+      }
+      .item-img {
+        width: 100%;
+      }
+      .item-tit {
+        padding: 2.7rem 0 1.5rem;
+        font-size: 1.4rem;
+        color: rgba(45, 85, 51, 1);
+      }
+      .item-txt {
+        font-size: 1.2rem;
+        color: rgba(153, 153, 153, 1);
+        line-height: 2;
+      }
+    }
   }
-  .v-footer {
-    background: url(../images/culture/BG2.jpg) center/cover repeat-y;
-  }
+  // .v-footer {
+  //   background: url(../images/culture/BG2.jpg) center/cover repeat-y;
+  // }
   .inner-top {
     padding: 0 2.7rem;
   }
@@ -749,7 +890,195 @@ body,
   height: 100%;
   padding-top: 4.3rem;
   .main-banner {
-    background-image: url(../images/wap/contact/aboutus.jpg);
+    background-image: url(../images/wap/about/aboutus.jpg);
+  }
+  .sec {
+    padding: 3.5rem 2.8rem 0;
+    position: relative;
+    .sec-tit {
+      text-align: center;
+      font-size: 2rem;
+      font-family: PingFang SC;
+      font-weight: 400;
+      color: rgba(45, 85, 51, 1);
+    }
+    .sec-txt {
+      font-size: 1.2rem;
+      font-family: PingFang SC;
+      color: rgba(102, 102, 102, 1);
+      line-height: 2;
+      position: relative;
+      z-index: 2;
+    }
+    .sec-bg {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+    .sec-img {
+      width: 100%;
+    }
+  }
+  .sec01 {
+    height: 40rem;
+    background: linear-gradient(74deg, rgba(246, 243, 237, 1) 52%, rgba(253, 250, 241, 1) 100%);
+    .sec-tit {
+      margin-bottom: 2rem;
+      position: relative;
+      z-index: 2;
+    }
+  }
+  .sec02 {
+    height: 41rem;
+    background: rgba(239, 234, 238, 1);
+  }
+  .sec03 {
+    height: 41rem;
+    background: rgba(38, 47, 54, 1);
+    .sec-txt {
+      color: rgba(254, 254, 254, 1);
+    }
+  }
+  .sec04,
+  .sec07 {
+    .sec-tit {
+    }
+    .sec-desc {
+      padding: 2rem 0 2.6rem;
+      font-size: 1.2rem;
+      font-family: PingFang SC;
+      color: rgba(102, 102, 102, 1);
+      letter-spacing: 0.2rem;
+      text-align: center;
+    }
+    .sec04-item {
+      .sec04-item-img {
+        width: 100%;
+      }
+      .sec04-item-bd {
+        padding: 2.2rem 0 3rem;
+      }
+      .sec04-item-info {
+        padding-left: 3rem;
+        border-left: 1px solid @color;
+      }
+      .sec04-item-tit {
+        margin-bottom: 1.2rem;
+        font-size: 1.4rem;
+        font-family: PingFang SC;
+        color: rgba(68, 80, 51, 1);
+      }
+      .sec04-item-txt {
+        color: rgba(153, 153, 153, 1);
+      }
+    }
+  }
+  .sec05 {
+    overflow: hidden;
+    background: rgba(204, 225, 152, 0.1);
+    .sec-tit {
+      margin-bottom: 2rem;
+    }
+    .sec-img {
+      margin: 3.2rem 0 4.8rem;
+    }
+    .sec-txt {
+      color: #666;
+    }
+  }
+  .sec06 {
+    padding-bottom: 4.2rem;
+    .sec-tit {
+      margin-bottom: 2rem;
+    }
+    .sec-txt01 {
+      color: rgba(153, 153, 153, 1);
+    }
+    .sec-txt {
+      margin-bottom: 2.1rem;
+    }
+    .sec-img01 {
+      margin-bottom: 2.2rem;
+    }
+    .sec-img02 {
+    }
+  }
+
+  .sec07 {
+    background: rgba(204, 225, 152, 0.1);
+  }
+  .sec08 {
+    padding: 3rem 1.2rem;
+    .show-list {
+      height: 100%;
+      position: relative;
+      .show-item {
+        position: relative;
+        margin-bottom: 1.5rem;
+        // &:last-child{
+        //   margin-bottom: 0;
+        // }
+        .mul {
+          padding-top: 0.5rem;
+          display: flex;
+          align-items: center;
+          // justify-content: center;
+          flex-direction: column;
+          .mul-icon {
+            width: 100%;
+          }
+          .mul-line{
+            width: 1px;
+            height:1.3rem;
+            background:rgba(45,85,51,1);
+            margin: 0.7rem 0 0.7rem;
+          }
+          .mul-tit {
+            font-size: 1.6rem;
+            font-family: PingFang SC;
+            font-weight: bold;
+            color: @color;
+            margin-top: -1rem;
+          }
+          .mul-line {
+          }
+          .mul-txt {
+            font-size: 1rem;
+            font-family: PingFang SC;
+            color: rgba(153, 153, 153, 1);
+            line-height: 1.6;
+          }
+        }
+        .item-l {
+          width: 45%;
+          .item-img {
+            width: 100%;
+          }
+        }
+        .item-r {
+          width: 45%;
+        }
+        .line-dot {
+          width: 4px;
+          height: 4px;
+          background-color: @color;
+          border-radius: 50%;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          .translate(-49%, -50%);
+        }
+      }
+      .line-box {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 1px;
+        height: 100%;
+        background-color: @color;
+      }
+    }
   }
   .about-swiper-container {
     height: 100%;
@@ -882,23 +1211,27 @@ body,
   .page-wrapper {
     .intro-box {
       position: relative;
-      padding: 0 3.5rem 32rem;
-      background-color: rgba(158, 158, 158, 1);
+      padding: 0 3.5rem 4.7rem;
+      background-color: #fff;
     }
     .intro-tit {
       text-align: center;
       font-size: 1.8rem;
       font-family: PingFang SC;
       font-weight: 400;
-      color: rgba(255, 255, 255, 1);
-      padding: 2.8rem 0 3rem;
+      color: #2c5432;
+      padding: 2.8rem 0 1.8rem;
     }
     .intro-txt {
       text-align: justify;
       font-size: 1.2rem;
       font-family: PingFang SC;
-      color: rgba(255, 255, 255, 1);
+      color: #666666;
       line-height: 2;
+    }
+    .intro-img {
+      margin-top: 3.6rem;
+      width: 100%;
     }
     .spread-box {
       position: absolute;
@@ -1192,6 +1525,79 @@ body,
         }
       }
     }
+  }
+}
+/*****************************
+热销榜单
+*****************************/
+.hot-page {
+  padding: 4.3rem 0 0;
+  .hot-main {
+    min-height: calc(100vh - 11.3rem);
+  }
+  .hot-list {
+    padding: 1.6rem 1.3rem 0rem;
+  }
+  .hot-item {
+    width: 47.5%;
+    &:nth-child(even) {
+      margin-left: 5%;
+    }
+    .item-hd {
+    }
+    .item-img {
+      width: 100%;
+      height: 16.7rem;
+    }
+    .item-bd {
+      height: 15.4rem;
+      padding: 1.6rem 1.3rem;
+    }
+    .item-tit {
+      font-size: 1.6rem;
+      font-family: Microsoft YaHei;
+      font-weight: bold;
+      color: rgba(45, 85, 51, 1);
+      margin-bottom: 0.7rem;
+      .text_one();
+    }
+    .item-desc {
+      font-size: 1rem;
+      font-family: Microsoft YaHei;
+      color: rgba(153, 153, 153, 1);
+      line-height: 1.6rem;
+      height: 3.2rem;
+      margin-bottom: 1.8rem;
+      .text_hide(2);
+    }
+    .item-btn {
+      width: 100%;
+      height: 3.3rem;
+      background: rgba(45, 85, 51, 1);
+      font-size: 1.2rem;
+      font-family: Microsoft YaHei;
+      font-weight: bold;
+      color: rgba(255, 255, 255, 1);
+    }
+  }
+  .view-more {
+    display: block;
+    width: 100%;
+    font-size: 1.2rem;
+    margin: 0 auto 3rem;
+    background-color: #fff;
+    height: 4rem;
+    border: 1px solid #2c5432;
+    font-family: PingFang SC;
+    color: #2c5432;
+  }
+  .nomore-tip {
+    font-size: 1.3rem;
+    font-family: PingFang SC;
+    margin-bottom: 3rem;
+    text-align: center;
+    color: #666;
+    letter-spacing: 0.5rem;
   }
 }
 /*****************************

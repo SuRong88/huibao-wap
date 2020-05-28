@@ -17,7 +17,8 @@
             国特色芦荟家庭护理品牌， “ 荟 ”聚世界好芦荟产品，拥 有丰富的芦荟品类结构，有护肤系列、彩妆产品、洗护产 品、婴童、孕妇等家庭护理产品，满足家庭所有人群的需
             求，真正实现一站式购物，快捷方便。
           </p>
-          <p v-show="isSpread" class="intro-txt" style="margin-top: 2.2rem;">
+          <img class="intro-img" src="@/assets/images/wap/others/development.jpg" alt="">
+          <!-- <p v-show="isSpread" class="intro-txt" style="margin-top: 2.2rem;">
             广州澳梓美生物科技有限公司拥有资金实力及国际技术， 在国际开放的大背景之下，不断地钻研和利用科技成果实 现国际品质品牌本土化的发展规划，作为具有国际视野的
             护肤专家，澳梓美一直站在全球学术界对生物体和化妆品 研发的前沿，秉承“高品质、高形象、高服务”的营销理念 ，研制和生产符合市场需求的高品质产品，在2013年澳
             梓美公司荣获广东中小企业促进会颁发的“岭南好企业”奖 项，荟宝品牌多次荣获化妆品行业的“芦荟杰出护肤品牌” ，荟宝·我家的芦荟妆园荣获《中国美妆》、中国百货商
@@ -28,7 +29,7 @@
             <img v-show="!isSpread" class="spread-icon" src="@/assets/images/wap/culture/open.png" alt="" />
             <p class="spread-txt">{{ !isSpread ? '展开全部' : '折叠全部' }}</p>
           </div>
-          <div class="intro-bg"></div>
+          <div class="intro-bg"></div> -->
         </div>
         <div class="swiper-box01">
           <div class="swiper-box01-inner">
